@@ -1,27 +1,7 @@
-// package com.example.ticketsystem.entity;
-
-// import com.baomidou.mybatisplus.annotation.TableId;
-// import com.baomidou.mybatisplus.annotation.TableName;
-// import lombok.Data;
-
-// import java.time.LocalDateTime;
-
-// @Data
-// @TableName("ticket_reply")
-// public class TicketReply {
-//     @TableId
-//     private Long id;
-//     private Long ticketId;
-//     private Long userId;
-//     private String content;
-//     private LocalDateTime createdAt;
-// }
-
 package com.example.ticketsystem.entity;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
-
 import java.time.LocalDateTime;
 
 // @Data
