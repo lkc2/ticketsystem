@@ -1,0 +1,31 @@
+body {
+  background: #f6f6fa;
+  margin: 0;
+  font-family: 'Segoe UI', 'Noto Sans TC', 'Microsoft JhengHei', Arial, sans-serif;
+  color: #222;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.el-dialog {
+  border-radius: 16px;
+}
+
+.el-button {
+  border-radius: 10px !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: #f6f6fa;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfd8dc;
+  border-radius: 4px;
+}
+
+.el-table th, .el-table td {
+  font-size: 16px;
+}
