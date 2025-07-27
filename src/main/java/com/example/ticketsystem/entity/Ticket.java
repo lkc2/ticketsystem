@@ -1,5 +1,6 @@
 package com.example.ticketsystem.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.time.LocalDateTime;
@@ -7,13 +8,13 @@ import java.time.LocalDateTime;
 // @Data
 @TableName("ticket")
 public class Ticket {
-    @TableId
+    @TableId(type = IdType.AUTO)
     private Long id;
     private Long userId;
     private String title;
     private String content;
-    private String status;     // open/processing/done
-    private String priority;   // low/mid/high
+    private String status;
+    private String priority;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 

@@ -34,8 +34,6 @@ public class TicketReplyController {
         return ticketReply;
     }
 
-    // 可加修改/刪除功能（視權限決定是否公開 API）
-
     // 依回覆ID查詢單一回覆
     @GetMapping("/{id}")
     public TicketReply getReplyById(@PathVariable Long id) {

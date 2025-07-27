@@ -7,14 +7,22 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-// @RestController 代表這是一個 REST API 控制器
 @RestController
-@RequestMapping("/api/users")  // API 路徑開頭
+@RequestMapping("/api/users")  //API路徑開頭
 public class UserController {
 
     // 自動注入 Service
     @Autowired
     private UserService userService;
+
+    // 登入
+    @PostMapping("/login")
+    public User login(@RequestBody User req) {
+        User user = userService.findByUsername(req.getUsername());
+        if (user == null) throw new RuntimeException("用戶不存在");
+        if (!user.getPassword().equals(req.getPassword())) throw new RuntimeException("密碼錯誤");
+        return user;
+    }
 
     // 取得所有用戶
     @GetMapping
@@ -30,8 +38,9 @@ public class UserController {
 
     // 新增用戶
     @PostMapping
-    public boolean createUser(@RequestBody User user) {
-        return userService.save(user);
+    public User createUser(@RequestBody User user) {
+        userService.save(user);
+        return user;
     }
 
     // 修改用戶資料
@@ -44,6 +53,9 @@ public class UserController {
     // 刪除用戶
     @DeleteMapping("/{id}")
     public boolean deleteUser(@PathVariable Long id) {
-        return userService.removeById(id);
+        boolean result = userService.removeById(id);
+        System.out.println("刪除用戶 id = " + id + ", 結果 = " + result);
+        return result;
     }
+
 }
